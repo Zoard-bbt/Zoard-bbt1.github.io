@@ -1,0 +1,490 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Dosis", sans-serif;
+}
+
+body.index{
+    overflow-x: hidden;
+    background-attachment: fixed;
+    animation-name: bodymoveup;
+    animation-duration: 3s;
+    
+}
+
+body::-webkit-scrollbar{
+    background-color: #B1556C;
+    size: 2rem;
+  }
+  
+  body::-webkit-scrollbar-thumb{
+    background-color: black;
+  }
+//index.html stuff, not related to any of the next .html files
+
+//==================================================================================KEYFRAMES=============================================================================
+
+//index.html and homepage animations
+
+@keyframes bodymoveup{
+    0%{
+        transform: translateY(940px);
+        opacity: 0%;
+    }
+
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes moveToLeft{
+    0% {
+        transform: translateX(120px);
+        opacity: 0;
+        
+    }
+    100%{
+    transform: translateX(0px);
+    opacity: 1;
+    
+    }
+}
+
+@keyframes moveToRight{
+    0% {
+        transform: translateX(-120px);
+        opacity: 0;
+    }
+    100%{
+    transform: translateX(0px);
+    opacity: 1;
+    }
+}
+
+@keyframes animatebtn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes homepageloading{
+    0%{
+        transform: translateX(120px);
+        opacity: 0;
+        
+       }
+       100%{
+           transform: translateX(0px);
+           opacity: 1;
+       }
+}
+
+@keyframes contentloading{
+    0%{
+        transform: translateX(-120);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes homepageloadingleft{
+    0%{
+        transform: translateX(-120);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+//slideshow keyframes
+
+@keyframes slide{
+    0%{
+      left: 100%; width: 100%;
+    }
+    5%{
+      left: 0%;
+    }
+    25%{
+      left: 0%;
+    }
+    30%{
+      left: -100%; width: 100%;
+    }
+    31%{
+      left: -100%; width: 0%;
+    }
+  
+    100%{
+      left: 100%; width: 0%;
+    }
+}
+//==================================================================================PAGE_CONTENT=============================================================================
+
+
+//==================================================================================INDEX.HTML | SCSS=============================================================================
+.container{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+    url(images/backgroundimg2.jpg) center no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.banner h1{
+    font-size: 80px;
+    color: #ddd;
+    font-weight: 300;
+    margin-bottom: 30px;
+    animation-name: moveToLeft ;
+    animation-duration: 2s;
+}
+
+.banner span{
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #fff;
+}
+
+.banner p{
+    font-size: 50px;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 20px;
+    animation-name: moveToRight ;
+    animation-duration: 2s;
+}
+
+.banner button{
+    width: 180px;
+    padding: 12px;
+    margin: 20px;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    font-size: 18px;
+    outline:none;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.btn-left{
+    background-color: transparent;
+    color: #eee;
+    animation-name: animatebtn;
+    animation-duration: 2.3s; 
+    animation-delay: 1.5s;
+    animation-fill-mode: backwards;
+
+}
+.btn-left:hover{
+    background-color: white;
+    color: black;
+}
+.btn-right{
+    background-color:transparent;
+    color: #eee;
+    animation-name: animatebtn;
+    animation-duration: 2.3s; 
+    animation-delay: 2.3s;
+    animation-fill-mode: backwards;
+}
+
+.btn-right:hover{
+    background-color: white;
+    color: black;
+}
+//==================================================================================HOMEPAGE.HTML | SCSS=============================================================================
+.nav-bar{
+    height: 23vh;
+    display: flex;
+    width: 50%;
+    float: right;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto;
+    list-style: none;
+    animation-name: moveToRight;
+    animation-duration: 3s;
+    animation-delay: 5;
+    animation-fill-mode: backwards;
+    overflow: hidden;
+}
+
+.nav-bar-left{
+    height: 23vh;
+    display: flex;
+    width: 50%;
+    float: left;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto;
+    list-style: none;
+    animation-name: moveToLeft;
+    animation-duration: 3s;
+    animation-delay: 5;
+    animation-fill-mode: forwards;
+    overflow: hidden;
+}
+.nav-cell{
+    font-size: 20px; 
+    transition-duration: 0.4s;
+    font-weight: lighter;
+}
+.nav-cell:hover{
+    font-size: 30px;
+    border: 1rem;
+    border-color: black;
+    transition-duration: 0.4s;
+}
+.nav-cell-active{
+    font-size: 20px;
+    transition-duration: 0.4s;
+    font-weight: bold;
+    
+}
+
+.nav-cell-active:hover{
+    font-size: 30px;
+    transition-duration: 0.4s;
+    
+}
+
+.example_img{
+    max-width: 20%;
+    transition: width 2s;
+    align-items: center;
+    position: absolute;
+    left: 40%;
+    top: -8%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page_content{
+    font-size: 32px;
+    color: black;
+    text-align: center;
+    animation-name: contentloading;
+    animation-duration: 5s;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+    font-family: "Dosis", sans-serif;
+}
+
+.mySlides {
+    display: none
+}
+
+.logoimg {
+    vertical-align: middle;
+    background-color: lightgray;
+    height: 10vh;
+
+}
+
+.noice{
+    max-width: 100%;
+    max-width: 100%;
+    position: relative;
+    top: 1rem;
+}
+
+.moving_boxes{
+    position: relative; left: 200px; top: 100px;
+    padding-top: 0px;
+    color: lightgray;
+}
+
+.moving_img{
+    width: 50%;
+}
+//================================================================================================SLIDESHOW | SCSS===================================================================
+
+ 
+ .slideshow-container {
+    width: 100%;
+    height: 50%;
+    display: inline-block;
+    position: relative;
+    top: 7.5rem;
+    margin: auto;
+  }
+  
+ 
+  .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    opacity: 0;
+  }
+  
+  .active {
+    background-color: #717171;
+  }
+  
+
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+
+  @media only screen and (max-width: 300px) {
+    .text {font-size: 11px}
+  }
+  .item-div{
+      background-color: transparent;
+      height: 900px;
+  }
+  .item_1{
+    width: 400px;
+    height: 400px;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    font: 12px;
+    position: relative; left:81.2rem; top: 30px;
+    box-shadow: 5px 10px black;
+
+}
+
+.item_1_img{
+    width: 300px;
+    position: relative; left: 3rem; top: 20px;
+    border-radius: 10px;
+    
+}
+
+.item_1_text{
+    font-size: 20px;
+    position: relative; bottom: 10rem; left: 83.3rem;
+    font-weight: 700px;
+}
+
+.item_2{
+    width: 400px;
+    height: 400px;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    font: 12px;
+    position: relative; left:45.5rem; top: -27.9rem;
+    box-shadow: 5px 10px black;
+
+}
+
+.item_2_img{
+    width: 300px;
+    position: relative; left: 3rem; top: 20px;
+    border-radius: 10px;
+    
+}
+
+.item_2_text{
+    font-size: 20px;
+    position: relative; bottom: 40rem; left: 46rem;
+    font-weight: 700px;
+}
+
+.item_3{
+    width: 400px;
+    height: 400px;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    font: 12px;
+    position: relative; left: 10rem; top: -57.61rem;
+    box-shadow: 5px 10px black;
+
+}
+
+.item_3_img{
+    width: 300px;
+    position: relative; left: 3rem; top: 20px;
+    border-radius: 10px;
+    
+}
+
+.item_3_text{
+    font-size: 20px;
+    position: relative; bottom: 70rem; left: 12rem;
+    font-weight: 700px;
+}
+
+.fade-right{
+    padding-bottom: 100px;
+}
+
+.twox1_item_1{
+    width: 700px;
+    height: 400px;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    position: relative; top: 150px; right: 30px;
+    font: 12px;
+    box-shadow: 5px 10px black;
+}
+
+.twox1_text_1{
+    font-size: 32px;
+    position: relative; top: 3rem; left: 2rem;
+    font-weight: 700px;
+}
+
+.twox1_item_2{
+    width: 700px;
+    height: 400px;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    position: relative; bottom: 255px;; left: 50.5rem;
+    font: 12px;
+    box-shadow: 5px 10px black;
+}
+
+.twox1_text_2{
+    font-size: 32px;
+    position: relative; top: 3rem; left: 2rem;
+    font-weight: 700px;
+}
